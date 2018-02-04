@@ -1,0 +1,26 @@
+==================================
+QUEST-QMC Parallel TDM Readme File
+==================================
+-----
+Setup
+-----
+	1. Download quest-1.4.4.tgz and quest-1.4.4_para_files.zip
+	2. Extract quest files: tar -xzf quest-1.4.4.tgz
+	3. Extract parallel_tdm files: unzip quest-1.4.4_para_files.zip
+	4. Replace the following files in quest-1.4.4 with the ones in quest-1.4.4_para_files:
+		quest/SRC/dqmc_tdm1.F90
+		quest/SRC/dqmc_gtau.F90
+		quest/SRC/dqmc_omp.F90
+		quest/SRC/Makefile
+		quest/makefiles/make.inc.gcc
+		quest/EXAMPLE/geom/ggeom.F90
+	5. In the quest directory, type: make
+
+------------
+Parallel TDM
+------------
+	The parallel TDM is implemented by OpenMP. The number of threads is specified by '-p' in the command line. For example:
+	1. max number of threads: ./ggeom in -p
+	2. 1 <= n <= max, n is the number of threads: ./ggeom in -p n
+	3. single thread: ./ggeom in
+
